@@ -7,9 +7,7 @@
 
 			if ( e.content ) {
 
-				e.content = wp.shortcode.replace( 'bs_col', e.content, gridShortcodeToPreview );
-
-				e.content = wp.shortcode.replace( 'bs_row', e.content, gridShortcodeToPreview );
+				e.content = replaceShortcodeWithHTML( e.content );
 
 			}
 
@@ -23,12 +21,34 @@
 		});
 
 		/**
+		 * Process shortcodes in a block of text
+		 *
+		 * @param String content containing shortcodes
+		 * @returns String content with rendered markup
+		 */
+		function replaceShortcodeWithHTML( content ) {
+
+			if ( content ) {
+
+				content = wp.shortcode.replace( 'bs_row', content, gridShortcodeToPreview );
+
+				content = wp.shortcode.replace( 'bs_col', content, gridShortcodeToPreview );
+
+			}
+
+			return content;
+
+		}
+
+		/**
 		 * Convert [bs_col] and [bs_row] to preview divs
 		 *
 		 * @param wp.shortcode shortcode
-		 * @returns string preview HTML
+		 * @returns String preview HTML
 		 */
 		function gridShortcodeToPreview( shortcode ) {
+
+			var content = shortcode.content || "";
 
 			return wp.html.string({
 				"tag": "div",
@@ -36,7 +56,7 @@
 					"class": shortcode.get("class"),
 					"data-bs_grid_preview": 1
 				},
-				"content": shortcode.content.trim()
+				"content": replaceShortcodeWithHTML( content )
 			});
 
 		}
