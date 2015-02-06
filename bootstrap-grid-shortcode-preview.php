@@ -1,6 +1,6 @@
 <?php
 /*
-  Plugin Name: Bootstrap Grid Shortcode UI
+  Plugin Name: Bootstrap Grid Shortcode Preview
   Version: 0.1
   Plugin URI: http://voceconnect.com/
   Description: Renders the Bootstrap Grid shortcode in TinyMCE
@@ -8,7 +8,7 @@
   Author URI: http://voceconnect.com/
  */
 
-class Bootstrap_Grid_Shortcode_UI_Plugin {
+class Bootstrap_Grid_Shortcode_Preview_Plugin {
 
 	const PLUGIN_SLUG = 'bs_grid_shortcode_ui';
 
@@ -35,4 +35,4 @@ class Bootstrap_Grid_Shortcode_UI_Plugin {
 
 }
 
-add_action( 'init', array( new Bootstrap_Grid_Shortcode_UI_Plugin(), 'init' ) );
+add_action( 'init', array( new Bootstrap_Grid_Shortcode_Preview_Plugin(), 'init' ) );
