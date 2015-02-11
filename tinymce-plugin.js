@@ -58,7 +58,7 @@
 					"class": shortcode.get("class"),
 					"data-bs_grid_preview": 1
 				},
-				"content": replaceShortcodeWithHTML( content )
+				"content": content
 			});
 
 		}
