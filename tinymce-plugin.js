@@ -7,6 +7,8 @@
 
 			if ( e.content ) {
 
+				e.content = e.content.replace( /<br class="nc"\s*\/>/g, '' );
+
 				e.content = replaceShortcodeWithHTML( e.content );
 
 			}
